@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <div id="box1">
+        </div>
+
+    </table>
+    <script>
+        let table = document.getElementsByTagName("table");
+        let box;
+        let array = [];
+        let random = Math.floor((Math.random() * 11) + 0);
+        let random1 = Math.floor((Math.random() * 11) + 0);
+        let random2 = Math.floor((Math.random() * 11) + 0);
+        let count = 0;
+        let countDraw = 0;
+
+        for (let index = 0; index < 12; index++) {
+
+            box = document.createElement("div");
+            box.style.width = "50px";
+            box.style.height = "50px";
+            box.style.backgroundColor = "black";
+            box.style.margin = "10px";
+            box.style.display = "inline-block";
+            document.body.appendChild(box);
+            console.log(box);
+            array[index] = box;
+
+            if (index == random | index == random1) {
+                array[index].onclick = function (e) {
+                    array[index].style.backgroundColor = "red";
+                    count++;
+
+
+                    if (count > 0) {
+                        alert("You loss");
+                    }
+
+
+                }
+
+            }
+            else {
+
+                array[index].onclick = function (e) {
+                    array[index].style.backgroundColor = "green";
+                    count++;
+
+                    if (count > 7) {
+                        alert("You win!!");
+                    }
+                }
+            }
+            countDraw++;
+            if (countDraw % 3 == 0) {
+                document.write("<br>");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
